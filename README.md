@@ -8,11 +8,13 @@ The gem was built with an idea to implement a class which will create options fo
 
 ___
 
-* Installation
-* Usage
-  * Caching options
-  * Examples
-  * Controller helpers
+* [Installation](#installation)
+* [Usage](#usage)
+  * [Caching options](#caching-options)
+  * [Examples](#examples)
+  * [Controller helpers](#controller-helpers)
+* [Contributing](#contributing)
+* [License](#license)
 
 ## Installation
 
