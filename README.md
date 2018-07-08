@@ -1,5 +1,7 @@
 # StaleOptions
 
+[![Build Status](https://travis-ci.org/digaev/stale_options.svg?branch=master)](https://travis-ci.org/digaev/stale_options)
+
 A gem for caching HTTP responses.
 
 The gem was built with an idea to implement a class which will create options for `ActionController::ConditionalGet#stale?` method, without caring of type of object class.
