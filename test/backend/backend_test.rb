@@ -22,6 +22,20 @@ class BackendTest < Minitest::Test
     end
   end
 
+  def test_if_stale_true_without_block
+    StaleOptions.stub :create, etag: '123' do
+      mock = Minitest::Mock.new
+      mock.expect(:stale?, true, [etag: '123'])
+
+      class << mock
+        include StaleOptions::Backend
+      end
+
+      assert mock.send(:if_stale?, 0)
+      assert_mock mock
+    end
+  end
+
   def test_if_stale_false
     StaleOptions.stub :create, etag: '123' do
       mock = Minitest::Mock.new
@@ -57,6 +71,20 @@ class BackendTest < Minitest::Test
 
       assert_mock mock
       assert block_called
+    end
+  end
+
+  def test_unless_stale_true_without_block
+    StaleOptions.stub :create, etag: '123' do
+      mock = Minitest::Mock.new
+      mock.expect(:stale?, false, [etag: '123'])
+
+      class << mock
+        include StaleOptions::Backend
+      end
+
+      assert mock.send(:unless_stale?, 0)
+      assert_mock mock
     end
   end
 
