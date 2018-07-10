@@ -5,7 +5,7 @@
 
 A gem for caching HTTP responses.
 
-The gem was built with an idea to implement a class which will create options for `ActionController::ConditionalGet#stale?` method, without caring of type of object class.
+The gem was built with an idea to implement a class which will create options for `ActionController::ConditionalGet#stale?` method. It allows to cache any kind of object, not only record or collection (unlike of `#stale?`).
 
 ___
 
