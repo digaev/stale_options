@@ -1,26 +1,5 @@
 module StaleOptions
   class AbstractOptions
-    # Params:
-    # +record+:: +Object+:: An +Object+, +Array+ or +ActiveRecord::Relation+.
-    # +options+:: +Hash+::
-    #               * +:cache_by+::
-    #                 * +String+ or +Symbol+::
-    #                   A name of method which returns unique identifier of object for caching.
-    #
-    #                   For arrays and relations if value is +itself+, then it will be cached as it is,
-    #                   otherwise this method will be called on each element.
-    #                   Relations will be converted to arrays by calling <tt>#to_a</tt>.
-    #
-    #                   Hint: To cache an array of "simple" objects (e.g. +String+ or +Numeric+) set it to +itself+.
-    #                 Default: +:updated_at+.
-    #               * +:last_modified+::
-    #                 * +String+ or +Symbol+::
-    #                   If +record+ is a relation, then an attribute name.
-    #                   If +record+ is an +Array+ or +Object+, then a method name.
-    #                   Expected an instance of +ActiveSupport::TimeWithZone+, +DateTime+, +Time+.
-    #                 * +ActiveSupport::TimeWithZone+, +DateTime+, +Time+ or +nil+::
-    #                   To set +last_modified+.
-    #                 Default: +:updated_at+.
     def initialize(record, options = {})
       @record = record
       @options = {
@@ -29,7 +8,6 @@ module StaleOptions
       }.merge!(options)
     end
 
-    # Returns options for <tt>ActionController::ConditionalGet#stale?</tt>
     def to_h
       { etag: etag, last_modified: nil }.tap do |h|
         unless last_modified_opt.nil?
