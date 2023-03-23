@@ -10,7 +10,7 @@ workflows:
       - test:
           matrix:
             parameters:
-              ruby-image: ["ruby:2.5", "ruby:2.6", "ruby:2.7"]
+              ruby-image: ["ruby:2.5", "ruby:2.6", "ruby:2.7", "ruby:3.0"]
 
   coveralls:
     jobs:
@@ -34,7 +34,7 @@ jobs:
 
   coveralls:
     docker:
-      - image: "ruby:2.6"
+      - image: "ruby:3.0"
     steps:
       - checkout
       - run:
