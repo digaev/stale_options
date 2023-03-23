@@ -49,7 +49,7 @@ StaleOptions.create(Item.all)
 => {:etag=>"39f08c583b023142dd64b0922dfaefd4", :last_modified=>2018-07-04 18:05:22 UTC}
 ```
 
-The method also acceppts an optional second parameter (see Caching options).
+The method accepts an optional second parameter (see Caching options).
 
 ### Caching options
 
@@ -59,7 +59,7 @@ There are two options for caching, `cache_by` and `last_modified`:
   * `String` or `Symbol`. The name of the method that returns the unique identifier of the object for caching, which is used to set `etag` of the resulting options. Set it to `itself` if you don't have such a method (see example below) and the gem will generate one for you.
   * Default: `:updated_at`.
 * `:last_modified`
-  * `String` or `Symbol`. The name of the method that returns an instance of `ActiveSupport::TimeWithZone`, `DateTime`, `Time`.
+  * `String` or `Symbol`. The name of the method that returns an instance of `ActiveSupport::TimeWithZone`, `DateTime` or `Time`.
   * `ActiveSupport::TimeWithZone`, `DateTime`, `Time` or `nil` to set `:last_modified` directly.
   * Default: `:updated_at`.
 
