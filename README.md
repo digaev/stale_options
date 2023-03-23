@@ -20,22 +20,26 @@ ___
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Add one of these lines to your application's Gemfile depending on your Rails version:
 
 ```ruby
-gem 'stale_options'
+# Rails 5.2
+gem 'stale_options', '~> 1.0.0'
+
+# Rails 6.0
+gem 'stale_options', '~> 1.1.0'
+
+# Rails 6.1
+gem 'stale_options', '~> 1.2.0'
+
+# Rails 7.0
+gem 'stale_options', '~> 1.3.0'
 ```
 
 And then execute:
 
 ```sh
-bundle
-```
-
-Or install it yourself as:
-
-```sh
-gem install stale_options
+bundle install
 ```
 
 ## Usage
