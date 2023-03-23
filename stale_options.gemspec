@@ -21,11 +21,11 @@ Gem::Specification.new do |spec|
 
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'activerecord', '~> 5.2.0'
-  spec.add_dependency 'activesupport', '~> 5.2.0'
+  spec.add_dependency 'activerecord', '~> 6.0.0'
+  spec.add_dependency 'activesupport', '~> 6.0.0'
 
   spec.add_development_dependency 'minitest', '~> 5.15.0'
   spec.add_development_dependency 'rake', '~> 12.3.3'
   spec.add_development_dependency 'simplecov'
-  spec.add_development_dependency 'sqlite3', '~> 1.3.0'
+  spec.add_development_dependency 'sqlite3', '~> 1.4.0'
 end
