@@ -15,17 +15,17 @@ module StaleOptions
     #  end
     #
     def if_stale?(record, options = {})
-      options = StaleOptions.create(record, options)
+      options = StaleOptions.create(record, **options)
 
-      if stale?(options)
+      if stale?(**options)
         block_given? ? yield(record) : true
       end
     end
 
     def unless_stale?(record, options = {})
-      options = StaleOptions.create(record, options)
+      options = StaleOptions.create(record, **options)
 
-      unless stale?(options)
+      unless stale?(**options)
         block_given? ? yield(record) : true
       end
     end
