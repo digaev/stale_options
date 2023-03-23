@@ -1,0 +1,48 @@
+version: 2.1
+
+orbs:
+  coveralls: coveralls/coveralls@2.1.0
+  node: circleci/node@5.1.0
+
+workflows:
+  tests:
+    jobs:
+      - test:
+          matrix:
+            parameters:
+              ruby-image: ["ruby:2.3", "ruby:2.4", "ruby:2.5", "ruby:2.6"]
+
+  coveralls:
+    jobs:
+      - coveralls
+
+jobs:
+  test:
+    parameters:
+      ruby-image:
+        type: string
+    docker:
+      - image: << parameters.ruby-image >>
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: bundle install
+      - run:
+          name: Run tests
+          command: bundle exec rake test
+
+  coveralls:
+    docker:
+      - image: "ruby:2.6"
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: bundle install
+      - run:
+          name: Run tests
+          command: bundle exec rake test
+      - node/install
+      - coveralls/upload:
+          coverage_format: simplecov
