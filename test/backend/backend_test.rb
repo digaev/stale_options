@@ -6,7 +6,7 @@ class BackendTest < Minitest::Test
 
     StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, true, [options])
+      mock.expect(:stale?, true, **options)
 
       block_called = false
 
@@ -29,7 +29,7 @@ class BackendTest < Minitest::Test
 
     StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, true, [options])
+      mock.expect(:stale?, true, **options)
 
       class << mock
         include StaleOptions::Backend
@@ -45,7 +45,7 @@ class BackendTest < Minitest::Test
 
     StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, false, [options])
+      mock.expect(:stale?, false, **options)
 
       class << mock
         include StaleOptions::Backend
@@ -64,7 +64,7 @@ class BackendTest < Minitest::Test
 
     StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, false, [options])
+      mock.expect(:stale?, false, **options)
 
       block_called = false
 
@@ -87,7 +87,7 @@ class BackendTest < Minitest::Test
 
     StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, false, [options])
+      mock.expect(:stale?, false, **options)
 
       class << mock
         include StaleOptions::Backend
@@ -103,7 +103,7 @@ class BackendTest < Minitest::Test
 
     StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, true, [options])
+      mock.expect(:stale?, true, **options)
 
       class << mock
         include StaleOptions::Backend
