@@ -1,7 +1,8 @@
 # StaleOptions
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/digaev/stale_options/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/digaev/stale_options/tree/master)
+[![Coverage Status](https://coveralls.io/repos/github/digaev/stale_options/badge.svg?branch=master)](https://coveralls.io/github/digaev/stale_options?branch=master)
 [![Gem Version](https://badge.fury.io/rb/stale_options.svg)](https://badge.fury.io/rb/stale_options)
-[![Build Status](https://travis-ci.org/digaev/stale_options.svg?branch=master)](https://travis-ci.org/digaev/stale_options) [![Coverage Status](https://coveralls.io/repos/github/digaev/stale_options/badge.svg?branch=master)](https://coveralls.io/github/digaev/stale_options?branch=master)
 
 A gem for caching HTTP responses.
 

@@ -2,9 +2,11 @@ require 'test_helper'
 
 class BackendTest < Minitest::Test
   def test_if_stale_true
-    StaleOptions.stub :create, etag: '123' do
+    options = { etag: '123' }.freeze
+
+    StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, true, [etag: '123'])
+      mock.expect(:stale?, true, [options])
 
       block_called = false
 
@@ -23,9 +25,11 @@ class BackendTest < Minitest::Test
   end
 
   def test_if_stale_true_without_block
-    StaleOptions.stub :create, etag: '123' do
+    options = { etag: '123' }.freeze
+
+    StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, true, [etag: '123'])
+      mock.expect(:stale?, true, [options])
 
       class << mock
         include StaleOptions::Backend
@@ -37,9 +41,11 @@ class BackendTest < Minitest::Test
   end
 
   def test_if_stale_false
-    StaleOptions.stub :create, etag: '123' do
+    options = { etag: '123' }.freeze
+
+    StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, false, [etag: '123'])
+      mock.expect(:stale?, false, [options])
 
       class << mock
         include StaleOptions::Backend
@@ -54,9 +60,11 @@ class BackendTest < Minitest::Test
   end
 
   def test_unless_stale_true
-    StaleOptions.stub :create, etag: '123' do
+    options = { etag: '123' }.freeze
+
+    StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, false, [etag: '123'])
+      mock.expect(:stale?, false, [options])
 
       block_called = false
 
@@ -75,9 +83,11 @@ class BackendTest < Minitest::Test
   end
 
   def test_unless_stale_true_without_block
-    StaleOptions.stub :create, etag: '123' do
+    options = { etag: '123' }.freeze
+
+    StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, false, [etag: '123'])
+      mock.expect(:stale?, false, [options])
 
       class << mock
         include StaleOptions::Backend
@@ -89,9 +99,11 @@ class BackendTest < Minitest::Test
   end
 
   def test_unless_stale_false
-    StaleOptions.stub :create, etag: '123' do
+    options = { etag: '123' }.freeze
+
+    StaleOptions.stub :create, options do
       mock = Minitest::Mock.new
-      mock.expect(:stale?, true, [etag: '123'])
+      mock.expect(:stale?, true, [options])
 
       class << mock
         include StaleOptions::Backend
