@@ -34,7 +34,7 @@ jobs:
 
   coveralls:
     docker:
-      - image: "ruby:3.0"
+      - image: "ruby:3.2"
     steps:
       - checkout
       - run:
