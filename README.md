@@ -56,7 +56,7 @@ The method accepts an optional second parameter (see Caching options).
 There are two options for caching, `cache_by` and `last_modified`:
 
 * `:cache_by`
-  * `String` or `Symbol`. The name of the method that returns the unique identifier of the object for caching, which is used to set `etag` of the resulting options. Set it to `itself` if you don't have such a method (see example below) and the gem will generate one for you.
+  * `String` or `Symbol`. The name of the method that returns the unique identifier of the object for caching, which is used to set `etag` of the resulting options. Set it to `itself` if you don't have such a method (see example below) and the gem will generate `etag` for you.
   * Default: `:updated_at`.
 * `:last_modified`
   * `String` or `Symbol`. The name of the method that returns an instance of `ActiveSupport::TimeWithZone`, `DateTime` or `Time`.
